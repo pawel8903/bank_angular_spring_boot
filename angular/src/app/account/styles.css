@@ -1,0 +1,66 @@
+.btn-options {
+  height: 100px;
+  width: 140px;
+  vertical-align: top;
+  margin-right: 10px;
+  border-radius: 6px;
+  background-color: #2B4F94;
+  color: white;
+}
+.icon-lock-open-empty{
+  color:white;
+  border-left: 1px solid white;
+  margin-left:4px;
+}
+.icon-bank {
+  font-size: 40px;
+}
+#bank-name{
+  font-size:35px;
+  margin:0;
+}
+#bank{
+  margin-top:15px;
+}
+#time {
+  font-size: 15px;
+  margin: 0;
+}
+#logout{
+  margin-top:10px;
+}
+.logout-div{
+  margin-right:30px;
+}
+.logout-div label input{
+  margin-left: 10px;
+}
+.setting{
+  margin-right:20px;
+}
+#settings{
+  margin-right:50px;
+}
+/*list*/
+li {
+  font-size: 20px;
+}
+.table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  text-align:center;
+}
+#transactions td{
+  border-right: 1px solid lightgrey;
+}
+#transactions td:last-child {
+  border-right: 0;
+}
+td{
+  max-width:20%;
+}
+#options{
+  margin-bottom:20px;
+}
+#btn-transfer {
+  background-color: #6171D5;
+}

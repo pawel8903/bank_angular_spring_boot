@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <label>Rodzaj rachunku</label>
+    </div>
+    <div class="col">
+      <select [(ngModel)]="newAccount.accountName" name="accountName">
+        <option>Zwykłe konto</option>
+        <option>Konto oszczędnościowe</option>
+        <option>Konto extra</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Podaj ile chcesz wpłacić na konto</label>
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="newAccount.amount" name="amount" />
+    </div>
+  </div>
+  <div>
+    <button (click)="addAccount()">Dodaj konto</button>
+  </div>
+</div>

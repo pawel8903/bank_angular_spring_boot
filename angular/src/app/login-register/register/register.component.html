@@ -1,0 +1,65 @@
+<app-login-register-top-bar></app-login-register-top-bar>
+
+<div class="container">
+  <div id="section">
+    <div id="buttons" class="row d-flex justify-content-center ">
+      <div class=" inline">
+        <button id="btn-top" routerLink="/login" class="btn btn-primary ">Logowanie</button>
+      </div>
+      <div class=" inline">
+        <button id="btn-top" class="btn btn-primary btn-main " routerLink="/register">Rejestracja</button>
+      </div>
+      <div class=" inline">
+        <button id="btn-top" class="btn btn-primary" routerLink="/reset">Resetuj hasło</button>
+      </div>
+    </div>
+    <div>
+      <label>Wprowadz dane aby dokonać rejestracji</label>
+    </div>
+    <div class="row justify-content-center">
+      <input type="text" [(ngModel)]="user.login" (keyup.enter)="onSubmit()" placeholder="Login" name="login">
+    </div>
+    <div class="row justify-content-center">
+      <input type="password" [(ngModel)]="user.password" (keyup.enter)="onSubmit()" (change)="checkPassword()" placeholder="Hasło" name="password">
+
+    </div>
+    <div class="row justify-content-center">
+      <input type="password" [(ngModel)]="user.confirm" (keyup.enter)="onSubmit()" (change)="checkConfirmPassword()" placeholder="Powtórz hasło" name="confirm">
+
+    </div>
+    <div class="row justify-content-center">
+      <input type="text" [(ngModel)]="user.street" (keyup.enter)="onSubmit()" placeholder="Ulica" name="street">
+    </div>
+    <div class="row justify-content-center">
+      <input type="text" [(ngModel)]="user.zip" (change)="checkZip()" (keyup.enter)="onSubmit()" placeholder="Kod pocztowy" name="zip">
+
+    </div>
+    <div class="row justify-content-center">
+      <select [(ngModel)]="user.town" name="town" (change)="checkCountry()">
+        <option>Wybierz kraj zamieszkania</option>
+        <option *ngFor="let country of country">{{country.town}}</option>
+      </select>
+    </div>
+    <div class=" row justify-content-start">
+      <button id="submit-btn" type="submit" (click)="onSubmit()" (keyup.enter)="onSubmit()" class="btn btn-primary">Zarejestruj</button>
+    </div>
+  </div>
+  <div class="justify-content-center">
+    <div class="row">
+      <span *ngIf="wrongConfirm==false">Hasła różną się od siebie</span><br />
+    </div>
+    <div class="row">
+      <span *ngIf="wrongPassword==false">
+        Hasło powinno zawierać conajmniej
+        jedną duża i małą literę, oraz jedną cyfrę. Długość hasłą powinna wynosić od 5 do 16 znaków
+      </span>
+    </div>
+
+    <div class="row">
+      <span *ngIf="wrongZip==false">Błędne kod pocztowego format: 00-000</span>
+    </div>
+    <div class="row">
+      <span *ngIf="wrongCountry==false">Wybiesz państwo z listy</span>
+    </div>
+  </div>
+</div>

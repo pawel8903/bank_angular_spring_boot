@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row " id="transfer">
+    <div class="col-2 ">
+      <label>Z konta:</label>
+    </div>
+    <div class="col-6">
+      <select [(ngModel)]="transfer.accountNumber" name="accountNumber">
+        <option>Wybierz konto</option>
+        <option *ngFor="let account of accounts">{{account.accountNumber}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <label>Odbiorca:</label>
+    </div>
+    <div class="col-6">
+      <input type="text" [(ngModel)]="transfer.recipient" name="recipient" placeholder="Podaj nazwę odbiorcy" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <label>Wpisz numer konta:</label>
+    </div>
+    <div class="col-6">
+      <input type="text" [(ngModel)]="transfer.recipientAccount" name="recipientAccount" placeholder="Wpisz numer konta" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-6">
+      <input type="checkbox" [(ngModel)]="addAdress" name="addAdress" (click)="addAdr()" />
+      <label>Dodaj adres</label>
+    </div>
+  </div>
+  <div class="row" *ngIf="addAdress">
+    <div class="col-2">
+      <label>Adress:</label>
+    </div>
+    <div class="col-6">
+      <input type="text" [(ngModel)]="transfer.adress" name="address" placeholder="Wpisz adres odbiorcy" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <label>Tytuł:</label>
+    </div>
+    <div class="col-6">
+      <input type="text" [(ngModel)]="transfer.description" name="description" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <label>Kwota:</label>
+    </div>
+    <div class="col-6">
+      <input type="text" [(ngModel)]="transfer.amount" name="amount" placeholder="0.00" />
+    </div>
+  </div>
+  <div class="row">
+    <button id="btn-transfer" class="btn" (click)="sendTransaction()">Dokonaj przelewu</button>
+  </div>
+  <div class="justify-content-center">
+    <div class="row">
+      <span *ngIf="err_accountNumber==false">Proszę wybrać konto numer konta</span>
+    </div>
+    <div class="row">
+      <span *ngIf="err_recipientAccount==false">
+        Proszę podać 16 cyfrowy numer konta odbiorcy</span>
+    </div>
+    
+    <div class="row">
+      <span *ngIf="err_amount==false">Błędna kwota. Przykładowa kwota: 111.11</span>
+    </div>
+    <div class="row">
+      <span *ngIf="err_description==false">Należy podać tytuł przelewu</span>
+    </div>
+  </div>
+</div>
+
+
+
+

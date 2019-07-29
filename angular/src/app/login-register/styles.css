@@ -1,0 +1,72 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.btn {
+  background-color: #2B4F94;
+  white-space: nowrap;
+ 
+}
+  .btn:active {
+    border: none;
+    outline: none;
+    outline-style: none !important;
+    
+  }
+  .btn:hover {
+    border: none;
+    outline: none;
+    outline-style: none !important;
+  }
+  .btn:focus {
+    border: none;
+    outline: none;
+    outline-style: none !important;
+  }
+.btn-main {
+  background-color: #0F0F3D;
+}
+label{
+  padding-top:7px;
+  color:white;
+  font-size:20px;
+}
+#btn-top{
+  border-radius: 0px;
+  border: none;
+}
+input[type=text], input[type=password], select {
+  width: 270px;
+  margin-bottom: 5px;
+ padding-left:5px;
+}
+#submit-btn {
+  border-radius: 3px;
+  border:none;
+  
+  margin-left:25px;
+  margin-bottom:5px;
+  margin-top:5px;
+}
+
+#section {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #0F0F3D;
+  width: 300.80px;
+  border-radius: 2px;
+}
+#buttons{
+  
+}
+#inputs{
+  
+}
+
+span{
+  color:lightcoral;
+}

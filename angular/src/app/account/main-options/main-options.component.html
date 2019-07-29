@@ -1,0 +1,55 @@
+
+<div class="container">
+  <div id="options">
+    <div class="row">
+      <ul class="list-inline">
+        <li class="list-inline-item" (click)="showSecondOptions('Tranzakcje')">Tranzakcje</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Rachunki')">Rachunki</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Karty')">Karty</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Oszczędności')">Oszczędności</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Kredyty')">Kredyty</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Inwestycje')">Inwestycje</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Ubezpieczenia')">Ubezpieczenia</li>
+        <li class="list-inline-item" (click)="showSecondOptions('Oferty i wnioski')">Oferty i wnioski</li>
+      </ul>
+    </div>
+
+    <div class="row" *ngIf="isOn">
+      <div *ngIf="actuallOptions == 'Tranzakcje'">
+        <button class="btn btn-options  " routerLink="/recipient">Odbiorcy zdefiniowani</button>
+        <button class="btn btn-options " routerLink="/transfer">Przelewy</button>
+        <button class="btn btn-options " routerLink="">Płatności cykliczne</button>
+        <button class="btn btn-options " routerLink="">Doładowania</button>
+        <button class="btn btn-options " routerLink="">Więcej</button>
+      </div>
+      <div *ngIf="actuallOptions == 'Rachunki'">
+
+        <button class="btn btn-options " routerLink="/transactions/{{account.id}}" *ngFor="let account of accounts">{{account.accountName}}<br />{{account.amount}} PLN</button>
+        <button class="btn btn-options " routerLink="/add_new_account">Nowy rachunek</button>
+      </div>
+      <div *ngIf="actuallOptions == 'Karty'">
+        <button class="btn btn-options " routerLink="">Nowa Karta</button>
+      </div>
+      <div *ngIf="actuallOptions == 'Oszczędności'">
+        <button class="btn btn-options " routerLink="">Nowy produkt</button>
+      </div>
+      <div *ngIf="actuallOptions == 'Kredyty'">
+        <button class="btn btn-options " routerLink="">Raport BIK</button>
+        <button class="btn btn-options " routerLink="">Pożyczka Gotówkowa</button>
+        <button class="btn btn-options " routerLink="">Nowy kredyt lub pożyczka</button>
+      </div>
+      <div *ngIf="actuallOptions == 'Inwestycje'">
+        <button class="btn btn-options " routerLink="">Usługi Maklerskie</button>
+        <button class="btn btn-options " routerLink="">Fundusze Inwestycje</button>
+        <button class="btn btn-options " routerLink="">OFE</button>
+        <button class="btn btn-options " routerLink="">Więcej</button>
+        <button class="btn btn-options " routerLink="">Nowa Inwestycja</button>
+      </div>
+      <div *ngIf="actuallOptions == 'Ubezpieczenia'">
+        <button class="btn btn-options " routerLink="">Archiwum polis</button>
+        <button class="btn btn-options " routerLink="">Oferta ubezpieczeń</button>
+        <button class="btn btn-options " routerLink="">Nowe ubezpieczenie</button>
+      </div>
+    </div>
+  </div>
+  </div>

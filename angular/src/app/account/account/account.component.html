@@ -1,0 +1,22 @@
+<div class="container">
+  <table  class="table">
+    <tr class="thead-light"> 
+      <th scope="col">Data</th>
+      <th scope="col">Odbiorca</th>
+      <th >Opis operacji</th>
+      <th>Rodzaj operacji</th>
+      <th>Kwota operacji</th>
+      <th>Saldo po operacji</th>
+    </tr>
+    <tr id="transactions" [routerLink]="['/transaction',transaction.id]" *ngFor="let transaction of transactions">
+      <td >{{transaction.dateTime[2]}}-{{transaction.dateTime[1]}}-{{transaction.dateTime[0]}}
+      {{transaction.dateTime[3]}}:{{transaction.dateTime[4]}}:{{transaction.dateTime[5]}}</td>
+      <td>{{transaction.sendToAccount}}</td>
+      <td>{{transaction.description}}</td>
+      <td>{{transaction.type}}</td>
+      <td>{{transaction.amount}} PLN</td>
+      <td>Saldo po operacji</td>
+    </tr>
+  </table>
+</div>
+

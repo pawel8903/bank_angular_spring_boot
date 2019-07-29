@@ -1,0 +1,38 @@
+<div class="constainer">
+  <div class="row">
+    <div class="col">
+      <label>
+        Data tranzakcji: {{transaction.dateTime[2]}}-{{transaction.dateTime[1]}}-{{transaction.dateTime[0]}}
+        {{transaction.dateTime[3]}}:{{transaction.dateTime[4]}}:{{transaction.dateTime[5]}}
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Odbiorca: {{transaction.sendToAccount}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Typ tranzacji: {{transaction.type}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Tytuł tranzakcji: {{transaction.description}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Kwota tranzakcji: {{transaction.amount}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Wysłane z konta: {{transaction.accountId}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn col" routerLink="/account">Powrót</button>
+  </div>
+</div>

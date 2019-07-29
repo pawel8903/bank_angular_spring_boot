@@ -1,0 +1,30 @@
+
+  <div class="container">
+    <div class="row  justify-content-around " id="bank">
+      <div><i class="icon-bank"></i></div>
+      <div>
+        <label id="bank-name">Bank spółdzielczy Nowa Nadzieja </label>
+      </div>
+      <div><label id="time" class="align-self-center">Czas do końca sesji: <span>{{actualleTime}}</span></label></div>
+    </div>
+    <div id="logout" class="row d-flex justify-content-end">
+      <div class="logout-div">
+        <label>Pole wyszukiwania<input type="text" /></label>
+      </div>
+      <div class="logout-div">
+        <label>Numer klienta: {{user.id}}</label>
+      </div>
+      <div class="logout-div">
+        <button class="btn btn-secondary" (click)="logout()">Wyloguj<i class="icon-lock-open-empty"></i></button>
+      </div>
+    </div>
+    <hr />
+    <div >
+      <app-settings></app-settings>
+    </div>
+    <div >
+      <app-main-options></app-main-options>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+

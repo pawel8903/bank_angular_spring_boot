@@ -1,0 +1,73 @@
+
+input[type=text], input[type=password], select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  padding: 12px 12px 12px 0px;
+  display: inline-block;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  margin: 0 10px;
+}
+
+  .btn:hover {
+    background-color: #45a049;
+  }
+
+.btn-row {
+  margin-top: 15px;
+}
+
+.container {
+  
+
+  padding: 20px;
+}
+
+.col-25 {
+  width: 25%;
+  float: left;
+  margin-top: 6px;
+  text-align: right;
+  padding-right: 25px;
+}
+
+.col-75 {
+  width: 75%;
+  float: left;
+  margin-top: 6px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.row:after {
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75 {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+span {
+  color: lightcoral;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+#transfer{
+
+}
