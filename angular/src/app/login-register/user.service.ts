@@ -16,6 +16,8 @@ const httpOptions = {
 })
 export class UserService {
 
+  valid = false;
+
   constructor(private http: HttpClient) { }
 
   private extractData(res: Response) {
@@ -23,7 +25,14 @@ export class UserService {
     return body || {};
   }
 
+  loginUser(user): Observable<any> {
+    return this.http.post<any>(endpoint+'login', JSON.stringify(user), httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
+
   getUserByLogin(login): Observable<any> {
+    
     return this.http.get<any>(endpoint +login).pipe(
       map(this.extractData)
     );
@@ -51,5 +60,12 @@ export class UserService {
       window.alert(errorMessage);
     } 
     return throwError(errorMessage);
+  }
+
+  changeValidation() {
+    this.valid = true;
+  }
+  isValid() {
+    return this.valid;
   }
 }

@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 
 @Component({
   selector: 'app-main-options',
   templateUrl: './main-options.component.html',
-  styleUrls: ['./main-options.component.css','../styles.css']
+  styleUrls: ['./main-options.component.css', '../styles.css']
 })
 export class MainOptionsComponent implements OnInit {
-
+ 
   isOn: boolean;
   actuallOptions: string = "";
   accounts: any = [];
@@ -20,7 +22,7 @@ export class MainOptionsComponent implements OnInit {
     this.isOn = false;
     this.accountService.getAccounts().subscribe(result => {
       this.accounts = result;
-      console.log(result)
+      
     })
   }
 
@@ -40,6 +42,6 @@ export class MainOptionsComponent implements OnInit {
     }
 
   }
-
+  
   
 }

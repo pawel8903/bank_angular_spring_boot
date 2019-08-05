@@ -42,6 +42,13 @@ export class RecipientService {
     )
   }
 
+  updateRecipient(recipient): Observable<any> {
+    return this.http.put<any>(endpoint, JSON.stringify(recipient), httpOptions).pipe(
+      retry(1),
+      catchError(this.handlerError)
+    )
+  }
+
 
   private handlerError(error) {
     let errorMessage = '';

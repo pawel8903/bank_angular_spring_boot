@@ -1,7 +1,7 @@
-<p>recipient works!</p>
-<div class="container">
-  <div class="row" *ngFor="let recipient of recipients">
-    <label id="recipient-name" class="col-6">{{recipient.name}}</label>
-    <label id="recipient-account-number" class="col-2">{{recipient.accountNumber}}</label>
+<div class="container ">
+  <div [routerLink]="['/transfer',recipient.id]" class="row d-flex justify-content-center" id="recipients" *ngFor="let recipient of recipients">
+    <label id="firstLetters" >{{recipient.firstLetters}}</label>
+    <label id="recipient-name" class="col-5 ">{{recipient.name}}</label>
+    <label id="recipient-account-number" class="col-4 text-right">{{recipient.accountNumber}}</label>
   </div>
 </div>

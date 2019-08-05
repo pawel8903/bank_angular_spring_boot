@@ -22,6 +22,16 @@ public class Recipient {
     @Column(name = "address")
     private String address;
 
+    public Recipient() {
+    }
+
+    public Recipient(int id, String name, long accountNumber, String address) {
+        this.id = id;
+        this.name = name;
+        this.accountNumber = accountNumber;
+        this.address = address;
+    }
+
     public int getId() {
         return id;
     }

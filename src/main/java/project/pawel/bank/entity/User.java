@@ -31,6 +31,18 @@ public class User {
 	@Column(name = "town")
 	private String town;
 
+	public User() {
+	}
+
+	public User(int id, String login, String password, String street, String zip, String town) {
+		this.id = id;
+		this.login = login;
+		this.password = password;
+		this.street = street;
+		this.zip = zip;
+		this.town = town;
+	}
+
 	public int getId() {
 		return id;
 	}

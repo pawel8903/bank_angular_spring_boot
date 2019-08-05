@@ -23,18 +23,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.townService.getTowns().subscribe((result) => {
-      console.log(result);
       this.country = result;
     })
   }
 
   onSubmit() {
     if (this.wrongConfirm && this.wrongPassword && this.wrongZip && this.wrongCountry) {
-     /* this.userSerivce.registerUser(this.user).subscribe((result) => {
-        this.router.navigate(['/login'])
-      }, (err) => {
-        console.log(err);
-      });*/
+     
       this.userSerivce.registerUser(this.user).subscribe(() => {
         this.router.navigate(['/login']);
       }, err => {

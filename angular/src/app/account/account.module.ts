@@ -12,16 +12,18 @@ import { AccountComponent } from './account/account.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { RecipientComponent } from './recipient/recipient.component';
+import { AuthGuardService } from '../auth-guard.service';
 
 
 const routes: Routes = [
   {
-    path: '', component: TopBarComponent, children: [
+    path: '', component: TopBarComponent/*, canActivate: [AuthGuardService]*/, children: [
       { path: '', component: AccountComponent },
       { path: 'transactions/:account_id', component: AccountComponent },
       { path: 'add_new_account', component: AddNewAccountComponent },
       { path: 'transaction/:id', component: TransactionComponent },
       { path: 'transfer', component: TransferComponent },
+      { path: 'transfer/:recipientId', component: TransferComponent },
       { path: 'recipient', component: RecipientComponent }
     ],
   },

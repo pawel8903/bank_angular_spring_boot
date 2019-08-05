@@ -23,7 +23,7 @@
       <label>Wpisz numer konta:</label>
     </div>
     <div class="col-6">
-      <input type="text" [(ngModel)]="transfer.recipientAccount" name="recipientAccount" placeholder="Wpisz numer konta" />
+      <input type="text" [(ngModel)]="transfer.recipientAccount" (change)="convertAccountNumber()" name="recipientAccount" placeholder="Wpisz numer konta" />
     </div>
   </div>
   <div class="row">
@@ -40,7 +40,7 @@
       <label>Adress:</label>
     </div>
     <div class="col-6">
-      <input type="text" [(ngModel)]="transfer.adress" name="address" placeholder="Wpisz adres odbiorcy" />
+      <input type="text" [(ngModel)]="transfer.address" name="address" placeholder="Wpisz adres odbiorcy" />
     </div>
   </div>
   <div class="row">
@@ -68,15 +68,17 @@
     </div>
     <div class="row">
       <span *ngIf="err_recipientAccount==false">
-        Proszę podać 16 cyfrowy numer konta odbiorcy</span>
+        Proszę podać 16 cyfrowy numer konta odbiorcy
+      </span>
     </div>
-    
+
     <div class="row">
       <span *ngIf="err_amount==false">Błędna kwota. Przykładowa kwota: 111.11</span>
     </div>
     <div class="row">
       <span *ngIf="err_description==false">Należy podać tytuł przelewu</span>
     </div>
+    
   </div>
 </div>
 

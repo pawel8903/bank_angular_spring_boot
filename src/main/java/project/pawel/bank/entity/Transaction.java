@@ -35,6 +35,20 @@ public class Transaction {
     @Column(name = "send_to_account")
     private long sendToAccount;
 
+    public Transaction() {
+    }
+
+    public Transaction(int id, int accountId, double amount, String address, String type, String description, LocalDateTime dateTime, long sendToAccount) {
+        this.id = id;
+        this.accountId = accountId;
+        this.amount = amount;
+        this.address = address;
+        this.type = type;
+        this.description = description;
+        this.dateTime = dateTime;
+        this.sendToAccount = sendToAccount;
+    }
+
     public int getId() {
         return id;
     }

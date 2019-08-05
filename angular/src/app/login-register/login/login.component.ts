@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.user);
-    this.userService.getUserByLogin(this.user.login).subscribe((result) => {
-      if (this.user.password == result.password) {
-        this.router.navigate(['/account']);
-        localStorage.setItem('user', JSON.stringify(result));
-      } else {
-        alert('Nie poprawne dane logowania. Proszę sprawdzić poprawność wprowadzonych danych');
-      }
+    this.userService.loginUser(this.user).subscribe((result) => {
+ 
+      this.userService.changeValidation();
+      localStorage.setItem('user', JSON.stringify(result));
+      this.router.navigate(['/account']);
+    }, (err) => {
+        alert("Niepoprawne dane logowania");
     }
     )
   }

@@ -7,7 +7,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { LoginRegisterTopBarComponent } from './login-register-top-bar/login-register-top-bar.component';
 import { ResetComponent } from './reset/reset.component';
 
 
@@ -21,7 +20,6 @@ const routes: Routes = [{ path: '', component: LoginComponent },
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LoginRegisterTopBarComponent,
     ResetComponent],
   imports: [
     CommonModule,

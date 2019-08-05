@@ -25,6 +25,17 @@ public class Account {
     @Column(name = "amount")
     private double amount;
 
+    public Account() {
+    }
+
+    public Account(int id, long accountNumber, int userId, String accountName, double amount) {
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.userId = userId;
+        this.accountName = accountName;
+        this.amount = amount;
+    }
+
     public long getId() {
         return id;
     }

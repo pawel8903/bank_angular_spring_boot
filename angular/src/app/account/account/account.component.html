@@ -18,5 +18,10 @@
       <td>Saldo po operacji</td>
     </tr>
   </table>
+  <div id="page">
+    <button (click)="previousPage()"><</button>
+    <button (click)="setPage(page)" *ngFor="let page of numberOfPagesArray">{{page}}</button>
+    <button (click)="nextPage()">></button>
+  </div>
 </div>
 

@@ -7,6 +7,7 @@ import project.pawel.bank.service.RecipientService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("recipient")
 public class RecipientController {

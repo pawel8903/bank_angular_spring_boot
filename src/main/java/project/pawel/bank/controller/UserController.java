@@ -46,10 +46,25 @@ public class UserController {
 	}
 	
 	@GetMapping("/{userLogin}")
-	public ResponseEntity<User> login(@PathVariable String userLogin) {
+	public ResponseEntity<User> getUser(@PathVariable String userLogin) throws CustomException {
+
 		User user = userService.getUser(userLogin);
+		if(user == null){
+			throw new CustomException("User not found");
+		}
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 
+	@PostMapping("/login")
+	public ResponseEntity<User> loginUser(@RequestBody User theUser){
+
+		User user = userService.getUser(theUser.getLogin());
+
+		if(user == null || !user.getPassword().equals(theUser.getPassword())){
+			return new ResponseEntity("Nieprawidłowe dane logowania",HttpStatus.NOT_FOUND);
+		}
+
+		return new ResponseEntity(user,HttpStatus.OK);
+	}
 
 }

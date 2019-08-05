@@ -17,8 +17,10 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
-  getTransactions(accountId): Observable<any> {
-    return this.http.get(endpoint + 'transactions/' + accountId).pipe(
+  getTransactions(accountId, page): Observable<any> {
+    let data = { accountId: accountId, page: page };
+    console.log(data);
+    return this.http.post<any>(endpoint + 'transactions/', JSON.stringify(data), httpOptions).pipe(
       map(this.extractData)
     )
   }
@@ -29,10 +31,16 @@ export class TransactionService {
     )
   }
 
-  addTransaction(transaction) {
+  addTransaction(transaction): Observable<any> {
     return this.http.post(endpoint, JSON.stringify(transaction), httpOptions).pipe(
       map(this.extractData),
       catchError(this.handlerError<any>('addTransaction'))
+    )
+  }
+
+  getPageNumber(accountId): Observable<any> {
+    return this.http.get(endpoint + 'page/' + accountId).pipe(
+      map(this.extractData)
     )
   }
 

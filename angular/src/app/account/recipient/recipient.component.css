@@ -1,6 +1,30 @@
-#recipient-name{
-  background-color:grey;
+#recipient-name {
+  display: flex;
+  align-items: center;
+  padding-left:20px;
+  font-size:20px;
 }
-#recipient-account-number{
-  background-color:grey;
+#recipient-account-number {
+  display: flex;
+  align-items: center;
+  text-align:right;
+  justify-content:flex-end;
+  padding-right:10px;
+  font-size:18px;
+}
+
+#firstLetters {
+  border-radius: 100px;
+  background-color: lightgray;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+#recipients {
+  margin-bottom:7px;
 }
