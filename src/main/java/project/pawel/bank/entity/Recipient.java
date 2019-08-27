@@ -22,14 +22,18 @@ public class Recipient {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "user_id")
+    private int userId;
+
     public Recipient() {
     }
 
-    public Recipient(int id, String name, long accountNumber, String address) {
+    public Recipient(int id, String name, long accountNumber, String address,int userId) {
         this.id = id;
         this.name = name;
         this.accountNumber = accountNumber;
         this.address = address;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -64,6 +68,14 @@ public class Recipient {
         this.address = address;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "Recipient{" +
@@ -71,6 +83,7 @@ public class Recipient {
                 ", name='" + name + '\'' +
                 ", accountNumber=" + accountNumber +
                 ", address='" + address + '\'' +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 }

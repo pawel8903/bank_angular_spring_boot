@@ -1,48 +1,50 @@
 
 <div class="container">
   <div id="section">
-    <div id="buttons" class="row d-flex justify-content-center ">
-      <div class=" inline">
-        <button id="btn-top" routerLink="/login" class="btn btn-primary ">Logowanie</button>
+    <div id="top_label" class="d-flex align-items-center justify-content-center">
+      <label>Rejestracja do banku</label>
+    </div>
+    <div id="inputs">
+      <div class="row justify-content-center">
+        <input type="text" [(ngModel)]="user.login" (keyup.enter)="onSubmit()" placeholder="Login" name="login">
       </div>
-      <div class=" inline">
-        <button id="btn-top" class="btn btn-primary btn-main " routerLink="/register">Rejestracja</button>
+      <div class="row justify-content-center">
+        <input type="password" [(ngModel)]="user.password" (keyup.enter)="onSubmit()" (change)="checkPassword()" placeholder="Hasło" name="password">
       </div>
-      <div class=" inline">
-        <button id="btn-top" class="btn btn-primary" routerLink="/reset">Resetuj hasło</button>
+      <div class="row justify-content-center">
+        <input type="password" [(ngModel)]="user.confirm" (keyup.enter)="onSubmit()" (change)="checkConfirmPassword()" placeholder="Powtórz hasło" name="confirm">
+      </div>
+      <div class="row justify-content-center">
+        <input type="text" [(ngModel)]="user.street" (keyup.enter)="onSubmit()" placeholder="Ulica" name="street">
+      </div>
+      <div class="row justify-content-center">
+        <input type="text" [(ngModel)]="user.zip" (change)="checkZip()" (keyup.enter)="onSubmit()" placeholder="Kod pocztowy" name="zip">
+      </div>
+      <div class="row justify-content-center">
+        <select [(ngModel)]="user.town" name="town" (change)="checkCountry()">
+          <option>Wybierz kraj zamieszkania</option>
+          <option *ngFor="let country of country">{{country.town}}</option>
+        </select>
       </div>
     </div>
-    <div>
-      <label>Wprowadz dane aby dokonać rejestracji</label>
-    </div>
-    <div class="row justify-content-center">
-      <input type="text" [(ngModel)]="user.login" (keyup.enter)="onSubmit()" placeholder="Login" name="login">
-    </div>
-    <div class="row justify-content-center">
-      <input type="password" [(ngModel)]="user.password" (keyup.enter)="onSubmit()" (change)="checkPassword()" placeholder="Hasło" name="password">
 
-    </div>
-    <div class="row justify-content-center">
-      <input type="password" [(ngModel)]="user.confirm" (keyup.enter)="onSubmit()" (change)="checkConfirmPassword()" placeholder="Powtórz hasło" name="confirm">
-
-    </div>
-    <div class="row justify-content-center">
-      <input type="text" [(ngModel)]="user.street" (keyup.enter)="onSubmit()" placeholder="Ulica" name="street">
-    </div>
-    <div class="row justify-content-center">
-      <input type="text" [(ngModel)]="user.zip" (change)="checkZip()" (keyup.enter)="onSubmit()" placeholder="Kod pocztowy" name="zip">
-
-    </div>
-    <div class="row justify-content-center">
-      <select [(ngModel)]="user.town" name="town" (change)="checkCountry()">
-        <option>Wybierz kraj zamieszkania</option>
-        <option *ngFor="let country of country">{{country.town}}</option>
-      </select>
-    </div>
-    <div class=" row justify-content-start">
+    <div class="justify-content-start">
       <button id="submit-btn" type="submit" (click)="onSubmit()" (keyup.enter)="onSubmit()" class="btn btn-primary">Zarejestruj</button>
     </div>
+
+    <div id="bottom_label" class="d-flex justify-content-end ">
+      <div class=" inline">
+        <label class="bootom_links" routerLink="/login">Logowanie</label>
+      </div>
+      <div class=" inline">
+        <label class="bootom_links" id="line" routerLink="/reset">Resetuj hasło</label>
+      </div>
+    </div>
   </div>
+
+
+
+
   <div class="justify-content-center">
     <div class="row">
       <span *ngIf="wrongConfirm==false">Hasła różną się od siebie</span><br />

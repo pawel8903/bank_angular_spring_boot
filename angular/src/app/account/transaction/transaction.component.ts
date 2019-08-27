@@ -27,7 +27,6 @@ export class TransactionComponent implements OnInit {
   getTransaction() {
     this.transactionService.getTransaction(this.id).subscribe(result => {
       this.transaction = result;
-      console.log(this.transaction)
       this.transaction.sendToAccount = this.toolsService.convertAccountNumber(String(this.transaction.sendToAccount))
       this.getAccount();
     })

@@ -1,19 +1,9 @@
 <div class="container">
   <div id="section">
-    <div id="buttons" class="row d-flex justify-content-center ">
-      <div class=" inline">
-        <button id="btn-top" class="btn btn-primary btn-main " routerLink="/login">Logowanie</button>
-      </div>
-      <div class=" inline">
-        <button id="btn-top" class="btn btn-primary" routerLink="/register">Rejestracja</button>
-      </div>
-      <div class=" inline">
-        <button id="btn-top" class="btn btn-primary" routerLink="/reset">Resetuj hasło</button>
-      </div>
+    <div id="top_label" class="d-flex align-items-center justify-content-center">
+      <label>Logowanie do banku</label>
     </div>
-    <div>
-      <label>Logowanie do banku przyszłości</label>
-    </div>
+
     <div id="inputs">
       <div class="row justify-content-center">
         <input type="text" [(ngModel)]="user.login" (keyup.enter)="onSubmit()" placeholder="Login" name="login" required>
@@ -21,10 +11,19 @@
       <div class="row  justify-content-center">
         <input type="password" [(ngModel)]="user.password" (keyup.enter)="onSubmit()" placeholder="Hasło" name="password" required>
       </div>
-
     </div>
-    <div class=" row justify-content-start">
-      <button id="submit-btn" type="submit"  (click)="onSubmit()" (keyup.enter)="onSubmit()" class="btn btn-primary">Zaloguj</button>
+
+    <div class="justify-content-center">
+      <button id="submit-btn" type="submit" (click)="onSubmit()" (keyup.enter)="onSubmit()" class="btn btn-primary">Zaloguj</button>
+    </div>
+
+    <div id="bottom_label" class="d-flex justify-content-end ">
+      <div class=" inline">
+        <label class="bootom_links"   routerLink="/register">Rejestracja</label>
+      </div>
+      <div class=" inline">
+        <label class="bootom_links" id="line"  routerLink="/reset">Resetuj hasło</label>
+      </div>
     </div>
   </div>
 </div>

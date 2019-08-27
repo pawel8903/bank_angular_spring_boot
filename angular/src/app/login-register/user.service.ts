@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError, tap, retry } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 
-const endpoint = 'http://localhost:8080/user/';
+const endpoint = environment.endpoint + 'user/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'

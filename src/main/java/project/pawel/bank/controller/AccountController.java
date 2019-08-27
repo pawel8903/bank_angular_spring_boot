@@ -9,6 +9,7 @@ import project.pawel.bank.tools.AccountNumberGenerator;
 import java.math.BigDecimal;
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:4200","http://77.55.209.207:4200"})
 @RestController
 @RequestMapping("/account")
 public class AccountController {
@@ -18,9 +19,9 @@ public class AccountController {
 
     private AccountNumberGenerator accountNumberGenerator = new AccountNumberGenerator();
 
-    @GetMapping
-    public List<Account> getAccounts(){
-        return accountService.getAccounts();
+    @GetMapping("/list/{userId}")
+    public List<Account> getAccounts(@PathVariable int userId){
+        return accountService.getAccounts(userId);
     }
 
     @GetMapping("{id}")

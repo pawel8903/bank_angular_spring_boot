@@ -11,7 +11,7 @@ public interface AccountService {
 
     Account updateAccount(Account account);
 
-    List<Account> getAccounts();
+    List<Account> getAccounts(int userId);
 
     boolean checkIfExist(long accontNumber);
 }

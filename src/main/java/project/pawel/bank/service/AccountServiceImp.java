@@ -30,8 +30,8 @@ public class AccountServiceImp implements AccountService {
     }
 
     @Override
-    public List<Account> getAccounts() {
-        return accountRepository.findAll();
+    public List<Account> getAccounts(int userId) {
+        return accountRepository.findByUserId(userId);
     }
 
     @Override

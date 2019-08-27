@@ -14,7 +14,7 @@ export class RecipientComponent implements OnInit {
   constructor(public recipientService: RecipientService, public toolsService: ToolsService) { }
 
   ngOnInit() {
-    this.recipientService.getResipients().subscribe(result => {
+    this.recipientService.getResipients(JSON.parse(localStorage.getItem('user')).id).subscribe(result => {
       this.recipients = result;
       for (let i = 0; i < this.recipients.length; i++) {
         this.recipients[i].accountNumber = this.toolsService.convertAccountNumber(String(this.recipients[i].accountNumber));

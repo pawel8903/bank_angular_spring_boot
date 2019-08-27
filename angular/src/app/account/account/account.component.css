@@ -1,0 +1,18 @@
+.previous {
+  background-color: #6FA9FF;
+}
+
+.next {
+  background-color: #6FA9FF;
+}
+.number {
+  background-color: #92BDFC;
+  border:2px thin black;
+}
+.btn{
+  margin: 0 1px;
+}
+#page{
+  margin-bottom:50px;
+  margin-top:10px;
+}

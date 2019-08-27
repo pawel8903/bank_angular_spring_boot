@@ -12,7 +12,7 @@ public interface AccountRepository extends Repository<Account,Long> {
 
     Account save(Account account);
 
-    List<Account> findAll();
+    List<Account> findByUserId(int userId);
 
     boolean existsByAccountNumber(long accountNumber);
 }

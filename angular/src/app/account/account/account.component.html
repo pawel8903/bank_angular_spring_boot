@@ -18,10 +18,10 @@
       <td>Saldo po operacji</td>
     </tr>
   </table>
-  <div id="page">
-    <button (click)="previousPage()"><</button>
-    <button (click)="setPage(page)" *ngFor="let page of numberOfPagesArray">{{page}}</button>
-    <button (click)="nextPage()">></button>
+  <div class="d-flex justify-content-center" id="page" >
+    <button class="btn previous" (click)="previousPage()"><</button>
+    <button class="btn number" (click)="setPage(page)" *ngFor="let page of numberOfPagesArray">{{page}}</button>
+    <button class="btn next" (click)="nextPage()">></button>
   </div>
 </div>
 

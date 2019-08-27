@@ -28,3 +28,7 @@
 #recipients {
   margin-bottom:7px;
 }
+.container{
+  border-top: 1px solid lightgrey;
+  padding-top:20px;
+}

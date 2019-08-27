@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError, tap, retry } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
-const endpoint = 'http://localhost:8080/recipient/';
+const endpoint = environment.endpoint+'recipient/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -22,8 +23,8 @@ export class RecipientService {
     return body || {};
   }
 
-  getResipients(): Observable<any> {
-    return this.http.get(endpoint).pipe(
+  getResipients(userId): Observable<any> {
+    return this.http.get(endpoint+'list/'+userId).pipe(
       map(this.extractData)
     )
 

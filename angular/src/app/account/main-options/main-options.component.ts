@@ -20,7 +20,7 @@ export class MainOptionsComponent implements OnInit {
 
   ngOnInit() {
     this.isOn = false;
-    this.accountService.getAccounts().subscribe(result => {
+    this.accountService.getAccounts(JSON.parse(localStorage.getItem('user')).id).subscribe(result => {
       this.accounts = result;
       
     })

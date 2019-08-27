@@ -17,7 +17,7 @@ import project.pawel.bank.tools.PageTransaction;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://77.55.209.207:4200"})
 @RestController
 @RequestMapping("transaction")
 public class TransactionCotroller {
@@ -30,7 +30,6 @@ public class TransactionCotroller {
 
     @PostMapping("/transactions")
     public List<Transaction> getTransactions(@RequestBody PageTransaction pageTransaction){
-        System.out.println(pageTransaction.toString());
         Pageable pageable = PageRequest.of(pageTransaction.getPage()-1,10, Sort.by("dateTime"));
         List<Transaction> transactions =transactionService.getTransactions(pageTransaction.getAccountId(),pageable);
 
@@ -39,7 +38,9 @@ public class TransactionCotroller {
     @GetMapping("/page/{accountId}")
     public int getPageNumber(@PathVariable int accountId){
         int page = transactionService.getPageNumber(accountId);
-
+        if(page == 0){
+            return page =0;
+        }
         return page;
     }
 

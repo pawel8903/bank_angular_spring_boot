@@ -52,7 +52,10 @@ create table `recipient`(
 	`id` int(11) not null auto_increment primary key,
     `name` varchar(128) not null,
     `account_number` bigint not null,
-    `address` varchar(128)
+    `address` varchar(128),
+    `user_id` int(11) not null,
+    
+    foreign key (`user_id`) references `user`(`id`)
     
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -73,4 +76,4 @@ insert into `transaction` values (null,1,-400,'przelew stały',null,'Bluzka','20
 insert into `transaction` values (null,1,-300,'przelew stały',null,'telefon komórkowy','2018-03-13 22:33:22',4564566767777755);
 insert into `transaction` values (null,1,-300,'przelew stały',null,'Samochód','2018-03-12 22:33:22',3333333333334444);
 insert into `transaction` values (null,1,-300,'przelew stały',null,'inne','2018-03-11 22:33:22',3455467655675678);
-insert into `recipient` values(null,'Katarzyna Kowalska',5365933214633762,'')
+insert into `recipient` values(null,'Katarzyna Kowalska',5365933214633762,'',100000);

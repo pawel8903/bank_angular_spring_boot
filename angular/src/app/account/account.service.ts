@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
-const endpoint = 'http://localhost:8080/account/';
+const endpoint = environment.endpoint+'account/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -18,8 +19,8 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  getAccounts(): Observable<any> {
-    return this.http.get(endpoint).pipe(
+  getAccounts(userId): Observable<any> {
+    return this.http.get(endpoint +'list/'+ userId).pipe(
       map(this.extractData)
     )
   }

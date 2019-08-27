@@ -10,7 +10,7 @@ export class TopBarComponent implements OnInit {
 
   user: any = {}
   startTime: number = 600;
-  actualleTime: string = "10:00";
+  actuallTime: string = "10:00";
   addNewAccount = false;
 
 
@@ -35,10 +35,10 @@ export class TopBarComponent implements OnInit {
       
       let hour = Math.floor(this.startTime / 60);
       let minute = this.startTime - hour * 60;
-      this.actualleTime = hour + ":" + minute;
+      this.actuallTime = hour + ":" + minute;
       if (minute < 10) {
         let tmpMinute = "0" + minute;
-        this.actualleTime = hour + ":" + tmpMinute;
+        this.actuallTime = hour + ":" + tmpMinute;
       }
       this.time();
     }, 1000)

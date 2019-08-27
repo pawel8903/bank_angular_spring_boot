@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../transaction.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToolsService } from '../../tools.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-account',
@@ -12,14 +13,13 @@ export class AccountComponent implements OnInit {
 
   transactions: any = [];
   account_id: any = {};
-  tmp: any = {};
-  numberOfPages: number;
+  numberOfPages;
   numberOfPagesArray = [];
   page = 1;
-
+  
 
   constructor(public transactioService: TransactionService, public toolsService: ToolsService,
-    private router: Router, private route: ActivatedRoute) { }
+    private router: Router, private route: ActivatedRoute, public accountService: AccountService) { }
 
   ngOnInit() {
     this.getAccountId();
@@ -27,14 +27,20 @@ export class AccountComponent implements OnInit {
 
   getAccountId() {
     this.route.params.subscribe(params => {
-      this.tmp = params['account_id'];
-      if (this.tmp == undefined) {
-        this.account_id = 1;
+      this.account_id = params['account_id'];
+      
+      if (this.account_id == undefined) {
+        this.accountService.getAccounts(JSON.parse(localStorage.getItem('user')).id).subscribe((result) => {
+          this.account_id = result[0].id;
+          this.getTransactions();
+          this.getPageNumber();
+        }, (err) => console.error(err)
+        )
       } else {
-        this.account_id = this.tmp;
+        this.getTransactions();
+        this.getPageNumber();
       }
-      this.getTransactions();
-      this.getPageNumber();
+      
     })
   }
 
@@ -49,13 +55,21 @@ export class AccountComponent implements OnInit {
   }
 
   getPageNumber() {
+    this.numberOfPagesArray = [];
+    this.page = 1;
     this.transactioService.getPageNumber(this.account_id).subscribe(result => {
-      this.numberOfPages = result % 10 == 0 ? result : (result / 10 + 1).toFixed();
 
-      for (let i = 0; i < this.numberOfPages; i++) {
-        this.numberOfPagesArray.push(i+1);
+      if (result == 0) {
+        this.numberOfPages = 0;
+      } else {
+        this.numberOfPages = result % 10 == 0 ? result / 10 : Math.ceil(result / 10);
+        if (this.numberOfPages != 0) {
+          for (let i = 0; i < this.numberOfPages; i++) {
+            this.numberOfPagesArray.push(i + 1);
+          }
+        }
       }
-      
+
     }, err => {
         console.error(err);
     })
@@ -66,13 +80,13 @@ export class AccountComponent implements OnInit {
     this.getTransactions();
   }
   nextPage() {
-    if (this.numberOfPages != this.page) {
+    if (this.numberOfPages != this.page && this.numberOfPages != 0) {
       this.page += 1;
       this.getTransactions();
     }
   }
   previousPage() {
-    if (this.page != 1) {
+    if (this.page != 1 ) {
       this.page -= 1;
       this.getTransactions();
     }

@@ -24,7 +24,7 @@ export class TransferComponent implements OnInit {
     public transactionService: TransactionService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.accountService.getAccounts().subscribe(result => {
+    this.accountService.getAccounts(JSON.parse(localStorage.getItem('user')).id).subscribe(result => {
       this.accounts = result;
       for (let i = 0; i < this.accounts.length; i++) {
         this.accounts[i].accountNumber = this.toolsService.convertAccountNumber(String(this.accounts[i].accountNumber))
@@ -96,6 +96,7 @@ export class TransferComponent implements OnInit {
       this.recipient.name = this.transfer.recipient.toUpperCase();
       this.recipient.accountNumber = this.toolsService.deconvertAccountNumber(this.transfer.recipientAccount);
       this.recipient.address = this.transfer.address;
+      this.recipient.userId = JSON.parse(localStorage.getItem('user')).id;
       console.log(this.recipient)
       if (this.recipient.id != null) {
         this.recipientService.updateRecipient(this.recipient).subscribe(err => {

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row " id="transfer">
+  <div class="row justify-content-center " id="transfer">
     <div class="col-2 ">
       <label>Z konta:</label>
     </div>
@@ -10,7 +10,7 @@
       </select>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-2">
       <label>Odbiorca:</label>
     </div>
@@ -18,7 +18,7 @@
       <input type="text" [(ngModel)]="transfer.recipient" name="recipient" placeholder="Podaj nazwę odbiorcy" />
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-2">
       <label>Wpisz numer konta:</label>
     </div>
@@ -26,7 +26,7 @@
       <input type="text" [(ngModel)]="transfer.recipientAccount" (change)="convertAccountNumber()" name="recipientAccount" placeholder="Wpisz numer konta" />
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-2">
 
     </div>
@@ -35,7 +35,7 @@
       <label>Dodaj adres</label>
     </div>
   </div>
-  <div class="row" *ngIf="addAdress">
+  <div class="row justify-content-center" *ngIf="addAdress">
     <div class="col-2">
       <label>Adress:</label>
     </div>
@@ -43,7 +43,7 @@
       <input type="text" [(ngModel)]="transfer.address" name="address" placeholder="Wpisz adres odbiorcy" />
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-2">
       <label>Tytuł:</label>
     </div>
@@ -51,7 +51,7 @@
       <input type="text" [(ngModel)]="transfer.description" name="description" />
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-2">
       <label>Kwota:</label>
     </div>
@@ -59,7 +59,7 @@
       <input type="text" [(ngModel)]="transfer.amount" name="amount" placeholder="0.00" />
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <button id="btn-transfer" class="btn" (click)="sendTransaction()">Dokonaj przelewu</button>
   </div>
   <div class="justify-content-center">

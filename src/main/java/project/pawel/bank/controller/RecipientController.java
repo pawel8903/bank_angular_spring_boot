@@ -7,7 +7,7 @@ import project.pawel.bank.service.RecipientService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://77.55.209.207:4200"})
 @RestController
 @RequestMapping("recipient")
 public class RecipientController {
@@ -15,9 +15,9 @@ public class RecipientController {
     @Autowired
     private RecipientService recipientService;
 
-    @GetMapping
-    public List<Recipient> getRecipients(){
-        return recipientService.getRecipients();
+    @GetMapping("/list/{userId}")
+    public List<Recipient> getRecipients(@PathVariable int userId){
+        return recipientService.getRecipients(userId);
     }
 
     @GetMapping("{id}")

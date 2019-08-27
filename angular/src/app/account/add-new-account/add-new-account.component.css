@@ -1,0 +1,25 @@
+.container{
+  border: 1px solid lightgrey;
+  padding-bottom:20px;
+  padding-top:20px;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top:10px;
+}
+label {
+  padding: 12px 12px 12px 0px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.btn {
+  background-color: #6171D5;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  margin: 10px 0;
+}

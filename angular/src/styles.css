@@ -7,13 +7,15 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 html{
   height:100%;
+  
 }
 body {
   /*background-image: linear-gradient(to bottom right, #993263, #091F48);*/
-  
+  margin-bottom: 50px;
   background-color: white;
 }
 

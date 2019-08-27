@@ -6,7 +6,7 @@ import project.pawel.bank.entity.Recipient;
 import java.util.List;
 
 public interface RecipientRepository extends Repository<Recipient,Integer> {
-    List<Recipient> findAll();
+    List<Recipient> findByUserId(int userId);
 
     Recipient getById(int id);
 

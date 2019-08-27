@@ -5,13 +5,17 @@ label{
 }
 
 .btn{
-  
   margin-top:18px;
   background-color:lightgray;
+  margin-bottom:10px;
 }
 
 p{
   font-size:20px;
   color:black;
   font:bold;
+}
+.constainer {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
 }

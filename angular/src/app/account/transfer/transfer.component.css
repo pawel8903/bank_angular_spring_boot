@@ -12,7 +12,7 @@ label {
 }
 
 .btn {
-  background-color: #4CAF50;
+  background-color: #6171D5;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -29,8 +29,7 @@ label {
 }
 
 .container {
-  
-
+  border:1px solid lightgrey;
   padding: 20px;
 }
 

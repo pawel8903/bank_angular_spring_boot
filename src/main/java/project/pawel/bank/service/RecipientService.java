@@ -5,7 +5,7 @@ import project.pawel.bank.entity.Recipient;
 import java.util.List;
 
 public interface RecipientService {
-    List<Recipient> getRecipients();
+    List<Recipient> getRecipients(int userId);
 
     Recipient getRecipient(int id);
 

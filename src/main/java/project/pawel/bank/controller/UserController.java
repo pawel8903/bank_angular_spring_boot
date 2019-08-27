@@ -16,7 +16,7 @@ import project.pawel.bank.Exception.CustomException;
 import project.pawel.bank.entity.User;
 import project.pawel.bank.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://77.55.209.207:4200"})
 @RestController
 @RequestMapping("/user")
 public class UserController {

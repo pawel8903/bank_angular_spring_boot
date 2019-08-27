@@ -15,8 +15,8 @@ public class RecipientServiceImp implements RecipientService {
     private RecipientRepository recipientRepository;
 
     @Override
-    public List<Recipient> getRecipients() {
-        return recipientRepository.findAll();
+    public List<Recipient> getRecipients(int userId) {
+        return recipientRepository.findByUserId(userId);
     }
 
     @Override
